@@ -8,6 +8,11 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+// Mongoose ODM
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://an0nh4x0r:password@localhost/standupmeetingdb');
+
+
 var app = express();
 
 // view engine setup

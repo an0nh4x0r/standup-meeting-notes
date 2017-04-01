@@ -14,27 +14,13 @@ var standupSchema = new Schema({
     workToday: {
         type: String
     },
+    impediments: {
+        type: String
+    },
     createdOn: {
         type: Date,
         default: Date.now()
     }
 });
 
-// Disabled Schema
-
-var noIdSchema = new Schema({
-    name: {
-        type: String
-    }
-}, { _id: false });
-
-
-// Example of using Schema.add
-
-var exampleSchema = new Schema;
-
-exampleSchema.add({
-    memberName: {
-        type: String
-    }
-});
+module.exports = mongoose.model('Standup', standupSchema);

@@ -14,7 +14,6 @@ mongoose.connect('mongodb://an0nh4x0r:password@localhost/standupmeetingdb');
 
 
 var app = express();
-app.locals.pretty = true;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

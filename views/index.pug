@@ -1,3 +1,47 @@
 extends layout
 
 block content
+    .container
+        .text-center
+            h1 Virtual Standup Meeting Notes
+            p.lead This is the list of last dozen meeting notes that were entered in
+
+    p
+
+    .container
+        form(action='/', method='post')
+            .row.clearfix
+                .col-md-4.column
+                    select#memberName.form-control(name='memberName')
+                        option(value='', disabled='disabled', selected=true) (Show All Members)
+                        option(value='Mark') Mark
+                        option(value='David') David
+                        option(value='John') John
+                        option(value='Mary') Mary
+                        option(value='Bob') Bob
+                .col-md-8.column
+                    button#btnFilterNotes.btn.btn-primary(name='btnFilterNotes') Filter Notes...
+
+    p
+
+    .container
+        .col-md-12.column.list-group
+            each note in notes
+                .list-group-item
+                    div
+                        | Note from:
+                        em
+                            strong= note.memberName
+                        |   on:
+                        span= note.createdOn
+                        |   - for project:
+                        strong= note.project
+                    div
+                        strong Work yesterday:
+                        span= note.workYesterday
+                    div
+                        strong Work today:
+                        span= note.workToday
+                    div
+                        strong Impediment:
+                        span= note.impediments

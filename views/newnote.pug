@@ -1,0 +1,50 @@
+extends layout
+
+block content
+
+    .container
+
+        h2.text-center.text-primary  New Virtual Standup Meeting Notes
+        p#secondary_heading.text-center Use this form to enter you daily notes...
+        form.form-horizontal(action='/newnote', method='post')
+                legend Enter a Meeting Note
+
+                .form-group
+                    label.col-md-4.control-label(for='memberName') Name
+                    .col-md-4
+                        select#memberName.form-control(name='memberName')
+                            option(value='', disabled='disabled', selected='true') (Select Name)
+                            option(value='mark') Mark
+                            option(value='david') David
+                            option(value='john') John
+                            option(value='mary') Mary
+
+                .form-group
+                    label.col-md-4.control-label(for='projectName') Project Name
+                    .col-md-4
+                        select#projectName.form-control(name='project')
+                            option(value='', disabled='disabled', selected='true') (Select Project)
+                            option(value='matrix') Matrix API Development
+                            option(value='trinity') Trinity UI Development
+                            option(value='morpheus') Morpheus Data Integration
+
+                .form-group
+                    label.col-md-4.control-label(for='workYesterday') What did you work on yesterday ?
+                    .col-md-4
+                        textarea#workYesterday.col-md-12(rows=2, placeholder='Yesterday', name='workYesterday')
+
+
+                .form-group
+                    label.col-md-4.control-label(for='workToday') What will you work on today ?
+                    .col-md-4
+                      textarea#workToday.col-md-12(rows=2, placeholder='Today', name='workToday')
+
+                .form-group
+                    label.col-md-4.control-label(for='impediments') Any impediment(s) ?
+                    .col-md-4
+                        textarea#impediments.col-md-12(rows=2, placeholder='None', name='impediments')
+
+                .form-group
+                    label.col-md-4.control-label(for='button') Save Note
+                    .col-md-4
+                        button#button.btn.btn-primary(name='button', type='submit') Save
